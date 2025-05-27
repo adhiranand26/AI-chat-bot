@@ -1,0 +1,201 @@
+/* CTA Section Fix for Contact Page - Add to the head of contactus.html */
+
+/* Background and container styling */
+.enhanced-cta {
+    background-color: #1f2337 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-image: linear-gradient(to bottom, #1f2337, #262b3e) !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 6rem 0 !important;
+}
+
+.enhanced-cta .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cta-background-effects {
+    opacity: 0.1;
+}
+
+/* Icon styling */
+.cta-icon {
+    background-image: linear-gradient(135deg, #4d71ff, #635dff) !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    margin-bottom: 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.cta-icon i {
+    font-size: 1.4rem !important;
+    color: white !important;
+}
+
+.icon-glow {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    background: rgba(77, 113, 255, 0.4);
+    opacity: 0.3;
+    animation: glow-pulse 2s ease-out infinite;
+}
+
+@keyframes glow-pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.15;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.3;
+    }
+}
+
+/* Stats container - horizontal layout */
+.cta-stats {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 3.5rem !important;
+    margin: 2.5rem auto !important;
+    padding: 1.5rem 1rem !important;
+    background: rgba(41, 45, 66, 0.3) !important;
+    border-radius: 12px !important;
+    max-width: 650px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+}
+
+/* Individual stat items */
+.cta-stat {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0 !important;
+}
+
+/* Stat styling for better visibility */
+.stat-number {
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #7388ff 0%, #9f83ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1 !important;
+}
+
+.stat-label {
+    font-size: 0.8rem !important;
+    color: #afb6e0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 500 !important;
+}
+
+.stat-icon {
+    color: #7388ff !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.2rem !important;
+}
+
+/* Button styling */
+.cta-actions {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    margin-top: 2.5rem !important;
+}
+
+.btn-primary, .btn-secondary {
+    border-radius: 6px !important;
+    padding: 0.75rem 1.5rem !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary {
+    background-image: linear-gradient(135deg, #4071ff 0%, #635dff 100%) !important;
+    color: white !important;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Title and subtitle styling */
+.cta-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+    color: #fff !important;
+}
+
+.cta-subtitle {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    max-width: 600px !important;
+    margin: 0.5rem auto !important;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: #7388ff !important;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .cta-stats {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        padding: 1rem !important;
+        gap: 1rem !important;
+    }
+    
+    .cta-stat {
+        min-width: 120px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-stats {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+}

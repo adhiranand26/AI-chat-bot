@@ -1,0 +1,248 @@
+/* Hover Effects for Chat Interface */
+
+/* Message hover effects */
+.message {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.message:hover .message-body {
+    box-shadow: var(--shadow-medium);
+}
+
+.bot-message:hover .message-body {
+    transform: translateY(-2px);
+}
+
+.user-message:hover .message-body {
+    transform: translateY(-2px);
+}
+
+/* Button hover effects */
+.action-button, 
+.send-btn, 
+.prompt-btn,
+.suggestion-button {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.action-button:hover, 
+.send-btn:enabled:hover, 
+.prompt-btn:hover,
+.suggestion-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Ripple effect for buttons */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Code block hover effects */
+.message-content pre {
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+}
+
+.message-content pre:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Code block language badge */
+.message-content pre:hover:before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0 0 0 4px;
+    font-family: 'Fira Code', monospace;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* Avatar hover effect */
+.message-avatar {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+.message:hover .message-avatar {
+    transform: scale(1.1);
+}
+
+.message-avatar::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.message:hover .message-avatar::before {
+    opacity: 0.5;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Message timestamp hover effect */
+.message-timestamp {
+    transition: opacity 0.3s ease;
+    opacity: 0.7;
+}
+
+.message:hover .message-timestamp {
+    opacity: 1;
+}
+
+/* Link hover effects */
+.bot-message .message-content a {
+    position: relative;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 0 0.1em;
+}
+
+.bot-message .message-content a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.bot-message .message-content a:hover {
+    color: var(--primary-hover);
+}
+
+.bot-message .message-content a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Table hover effects */
+.bot-message .message-content table {
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bot-message .message-content table:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message .message-content tr {
+    transition: background-color 0.2s ease;
+}
+
+.bot-message .message-content tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Copy button hover effect */
+.copy-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0;
+}
+
+.message-content pre:hover .copy-button {
+    opacity: 1;
+}
+
+.copy-button:hover {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Welcome message hover effect */
+.welcome-message {
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.welcome-message:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.welcome-icon {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.welcome-message:hover .welcome-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Input container hover effect */
+.input-wrapper {
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    .message:hover .message-body,
+    .bot-message:hover .message-body,
+    .user-message:hover .message-body {
+        transform: none;
+    }
+    
+    .welcome-message:hover {
+        transform: none;
+    }
+    
+    .input-wrapper:focus-within {
+        transform: none;
+    }
+    
+    .message-content pre:hover {
+        transform: none;
+    }
+}

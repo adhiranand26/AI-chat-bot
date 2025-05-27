@@ -1,0 +1,526 @@
+/* Chat message styling with improved aesthetics */
+
+/* Message container */
+.message {
+    display: flex;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    animation: appear 0.4s ease-out;
+    position: relative;
+}
+
+/* Message groups for context-aware conversations */
+.message-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.message-group .message {
+    margin-bottom: 0.5rem;
+}
+
+.message-group .message:last-child {
+    margin-bottom: 0;
+}
+
+/* Context connection styling */
+.message-group .message:not(:first-child) {
+    margin-left: 48px; /* Align with first message content */
+}
+
+.message-group .message:not(:first-child) .message-avatar {
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Connected message styling */
+.message-group .message:not(:first-child) .message-body {
+    position: relative;
+}
+
+.message-group .message:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -8px;
+    height: 8px;
+    width: 2px;
+    background: var(--border-color);
+    opacity: 0.7;
+}
+
+/* Response complete animation */
+.response-complete::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50px;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: completeAnimation 0.6s forwards ease-out;
+}
+
+/* AI typing cursor animation */
+.ai-cursor {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.5em;
+    height: 1em;
+    margin-left: 0.1em;
+    background-color: var(--primary-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes completeAnimation {
+    0% { transform: scaleX(0); opacity: 0.7; }
+    100% { transform: scaleX(1); opacity: 0; }
+}
+
+/* User message specific styling */
+.user-message {
+    flex-direction: row-reverse;
+}
+
+/* Message avatar */
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.75rem;
+    flex-shrink: 0;
+}
+
+.bot-message .message-avatar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.25);
+    color: white;
+}
+
+.user-message .message-avatar {
+    background: linear-gradient(135deg, var(--secondary-color), #9333ea);
+    box-shadow: 0 4px 8px rgba(139, 92, 246, 0.25);
+    color: white;
+}
+
+/* Message body */
+.message-body {
+    position: relative;
+    max-width: 80%;
+    border-radius: 18px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-small);
+    overflow: hidden;
+}
+
+.bot-message .message-body {
+    background-color: var(--chat-bot-bg);
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+}
+
+.user-message .message-body {
+    background: var(--chat-user-bg);
+    color: white;
+    border: none;
+    border-bottom-right-radius: 4px;
+}
+
+/* Message content */
+.message-content {
+    line-height: 1.6;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    transition: opacity 0.3s ease;
+}
+
+.bot-message .message-content {
+    color: var(--text-color);
+    animation: fadeInContent 0.5s ease-out;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+.bot-message .message-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--primary-color);
+    transition: all 0.2s ease;
+    padding: 0 0.1em;
+}
+
+.bot-message .message-content a:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.bot-message .message-content code {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Special styling for different content elements */
+.bot-message .message-content table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bot-message .message-content th,
+.bot-message .message-content td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.bot-message .message-content th {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+}
+
+.bot-message .message-content tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.bot-message .message-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.bot-message .message-content pre {
+    background: var(--dark-background);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+}
+
+.bot-message .message-content pre:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+.bot-message .message-content pre code {
+    background: transparent;
+    color: #e2e8f0;
+    padding: 0;
+    font-family: 'Fira Code', 'Roboto Mono', 'Menlo', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Timestamp styling */
+.message-timestamp {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.bot-message .message-timestamp {
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+.user-message .message-timestamp {
+    color: rgba(255, 255, 255, 0.85);
+    text-align: right;
+    justify-content: flex-end;
+}
+
+/* Message status indicators */
+.message-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+}
+
+.status-icon {
+    font-size: 0.8rem;
+}
+
+/* Message group timestamp - only show on last message */
+.message-group .message:not(:last-child) .message-timestamp {
+    display: none;
+}
+
+/* Contextual timestamp with hover effect */
+.message-group:hover .message .message-timestamp {
+    opacity: 0.9;
+}
+
+/* Message context indicator */
+.context-aware .message-body {
+    border-left: 3px solid var(--primary-color);
+}
+
+.context-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+    border-radius: 12px;
+    padding: 0 6px;
+    height: 20px;
+    font-size: 0.7rem;
+    margin-left: 6px;
+}
+
+/* Enhanced Notification styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-large);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 1000;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+}
+
+/* Notification types with improved visual hierarchy */
+.notification.success {
+    border-left: 4px solid var(--success-color);
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.1), transparent);
+}
+
+.notification.warning {
+    border-left: 4px solid var(--warning-color);
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-color);
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.1), transparent);
+}
+
+.notification.info {
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+}
+
+/* Notification animation */
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Notification icon */
+.notification i {
+    font-size: 1.25rem;
+}
+
+.notification.success i {
+    color: var(--success-color);
+}
+
+.notification.warning i {
+    color: var(--warning-color);
+}
+
+.notification.error i {
+    color: var(--error-color);
+}
+
+.notification.info i {
+    color: var(--primary-color);
+}
+
+/* Notification content */
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.notification-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.notification-message {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Close button */
+.notification-close {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.notification-close:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+/* Progress bar for auto-dismissal */
+.notification-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--primary-color);
+    width: 100%;
+    transform-origin: left;
+    animation: notification-progress 3s linear forwards;
+}
+
+@keyframes notification-progress {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* Notification stack */
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.notification {
+    pointer-events: all;
+}
+
+/* Enhanced Typing indicator styles */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--chat-bot-bg);
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    margin-left: 55px;  /* Aligns with bot messages */
+    max-width: max-content;
+    box-shadow: var(--shadow-small);
+    margin-bottom: 1rem;
+    animation: fadeIn 0.3s ease, pulse 2s infinite ease-in-out;
+    position: relative;
+    transform-origin: left center;
+}
+
+.typing-indicator::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 16px;
+    height: 16px;
+    background: var(--chat-bot-bg);
+    border-left: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: -1;
+}
+
+.typing-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    animation: dotPulse 1.4s infinite ease-in-out;
+    opacity: 0.6;
+}
+
+.typing-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.typing-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Enhanced animation for dots */
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    }
+}

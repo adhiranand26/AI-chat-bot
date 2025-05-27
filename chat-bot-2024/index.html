@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An intelligent chatbot powered by AI to help answer your questions">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="action-buttons.css">
+    <link rel="stylesheet" href="suggestion-prompts.css">
+    <link rel="stylesheet" href="input.css">
+    <link rel="stylesheet" href="code-blocks.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="hover-effects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>AI Assistant | Smart Chatbot</title>
+</head>
+<body class="page-transition">
+    <header id="head" class="glass-card">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon floating">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1 class="gradient-text">AI Assistant</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="aboutus.html" class="nav-link hover-lift">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </a>
+                <a href="contactus.html" class="nav-link hover-lift">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+                <a href="login.html" class="nav-link hover-lift">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Log Out
+                </a>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="chat-container enhanced-card">
+            <div class="chat-header">
+                <div class="chat-status">
+                    <div class="status-indicator offline"></div>
+                    <div class="api-status">
+                        <span id="status-text">Connecting to API</span>
+                        <div class="connection-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <button id="reconnect-btn" class="reconnect-btn" title="Reconnect to API" style="display: none;">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="action-btn" onclick="startNewSession()" title="Start new session with context">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="action-btn" onclick="clearChat()" title="Clear chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="action-btn" onclick="exportChat()" title="Export chat">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="action-btn" id="debug-btn" onclick="toggleDebugPanel()" title="Toggle debug panel">
+                        <i class="fas fa-bug"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chat-box" id="chat-box">
+                <div class="welcome-message">
+                    <div class="welcome-icon floating">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="wavy-text-container">Welcome to AI Assistant!</h3>
+                    <p>I'm here to help you with any questions you have. Type a message below to get started.</p>
+                    <div class="suggested-prompts">
+                        <button class="prompt-btn gradient-flow" onclick="usePrompt('What can you help me with?')">
+                            What can you help me with?
+                        </button>
+                        <button class="prompt-btn" onclick="usePrompt('Tell me a fun fact')">
+                            Tell me a fun fact
+                        </button>
+                        <button class="prompt-btn" onclick="usePrompt('How can I use this chat?')">
+                            How can I use this chat?
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">AI is typing...</span>
+            </div>
+            
+            <div class="input-container enhanced-input">
+                <div class="input-wrapper">
+                    <textarea class="bar" id="user-input" 
+                        placeholder="Type a message... (Press Enter to send, Shift+Enter for new line)"
+                        rows="1"></textarea>
+                    <div class="input-actions">
+                        <button id="sent-btn" class="send-btn" disabled title="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-footer">
+                    <div class="shortcuts">
+                        <span><kbd>Enter</kbd> to send • <kbd>Shift</kbd>+<kbd>Enter</kbd> for new line</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="sidebar-section enhanced-card">
+                <h3><i class="fab fa-github"></i> GitHub Ready</h3>
+                <ul class="tips-list">
+                    <li><i class="fas fa-code-branch"></i> Clean, documented code structure</li>
+                    <li><i class="fas fa-shield-alt"></i> Production-ready security features</li>
+                    <li><i class="fas fa-mobile-alt"></i> Fully responsive design</li>
+                    <li><i class="fas fa-palette"></i> Dark/Light theme support</li>
+                    <li><i class="fas fa-rocket"></i> Optimized performance</li>
+                    <li><i class="fas fa-globe"></i> Cross-browser compatibility</li>
+                </ul>
+                <div class="github-badge">
+                    <i class="fab fa-github"></i>
+                    <span>Ready for deployment</span>
+                </div>
+                <div class="deployment-status">
+                    <div class="status-dot"></div>
+                    <span>Production Ready</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer glass-card">
+        <div class="footer-content">
+            <div class="footer-copyright footer-shine">
+                <span>&copy; 2025</span>
+                <span class="company-name">By Adhi R Anand</span>
+                <span class="divider"></span>
+                <span>Powered by advanced artificial intelligence</span>
+            </div>
+        </div>
+    </footer>
+    <!-- Debug logger must be first to capture all logs -->
+    <script src="debug-logger.js"></script>
+    <script src="script.js"></script>
+    <script src="apitest.js"></script>
+    <script src="apidebug.js"></script>
+</body>
+</html>

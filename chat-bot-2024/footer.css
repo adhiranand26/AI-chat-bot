@@ -1,0 +1,102 @@
+/* Professional footer styling */
+.footer.glass-card {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-copyright .company-name {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+}
+
+.footer-copyright .divider {
+    width: 4px;
+    height: 4px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    margin: 0 0.5rem;
+}
+
+.footer-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-shine:after {
+    content: '';
+    position: absolute;
+    top: -110%;
+    left: -210%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(30deg);
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(255, 255, 255, 0.13) 77%,
+        rgba(255, 255, 255, 0.5) 92%,
+        rgba(255, 255, 255, 0.0) 100%
+    );
+    animation: shine 8s infinite;
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0;
+        left: -210%;
+    }
+    20%, 100% {
+        opacity: 1;
+        left: 100%;
+    }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .footer.glass-card {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-copyright {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .footer-copyright .divider {
+        display: none;
+    }
+}

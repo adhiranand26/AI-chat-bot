@@ -1,0 +1,85 @@
+/* Enhanced suggestion prompts styling */
+.suggested-prompts {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.suggestions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+/* Remove the heading */
+.suggestions-heading {
+    display: none;
+}
+
+.suggestion-button {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    color: var(--text-color);
+    font-size: 0.85rem;
+    max-width: fit-content;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-small);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Add arrow icon to suggestion buttons */
+.suggestion-button::before {
+    content: '→';
+    margin-right: 0.45rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Gradient background on hover */
+.suggestion-button:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+    border-color: transparent;
+}
+
+/* Smooth transition for gradient */
+.suggestion-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.suggestion-button:hover::after {
+    left: 100%;
+}
+
+/* Mobile responsive suggestions */
+@media (max-width: 768px) {
+    .suggestion-button {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .suggestions-container {
+        justify-content: center;
+    }
+}

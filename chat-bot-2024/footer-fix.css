@@ -1,0 +1,486 @@
+/* Professional Footer Redesign - Modern Enterprise Style */
+
+/* Main Footer Styling */
+.enhanced-footer {
+    position: relative;
+    background: linear-gradient(135deg, 
+        #161e2e 0%, 
+        #1a2236 100%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden;
+}
+
+/* Clean up background effects */
+.footer-background-effects {
+    opacity: 0.15 !important;
+}
+
+/* Replace purple gradient with subtle blue accent */
+.footer-glow-2 {
+    background: linear-gradient(135deg, 
+        rgba(65, 105, 225, 0.4) 0%, 
+        rgba(25, 55, 105, 0.4) 100%) !important;
+    opacity: 0.25 !important;
+    filter: blur(80px) !important;
+    width: 250px !important;
+    height: 250px !important;
+    bottom: -150px !important;
+    right: -100px !important;
+}
+
+.footer-glow-1 {
+    opacity: 0.15 !important;
+    filter: blur(70px) !important;
+}
+
+/* Structure and spacing improvements */
+.footer-main {
+    padding: 4rem 0 3rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr 2fr !important;
+    gap: 3rem !important;
+}
+
+/* Brand section enhancements */
+.logo-container {
+    background: linear-gradient(135deg, #4071ff 0%, #635dff 100%) !important;
+    box-shadow: 0 8px 20px rgba(64, 113, 255, 0.25) !important;
+}
+
+.logo-pulse {
+    border: 2px solid rgba(64, 113, 255, 0.3) !important;
+}
+
+.company-name {
+    background: linear-gradient(135deg, #4071ff 0%, #7a8fff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+}
+
+.tagline {
+    color: rgba(255, 255, 255, 0.7) !important;
+    letter-spacing: 0.5px !important;
+}
+
+.brand-description {
+    color: rgba(255, 255, 255, 0.6) !important;
+    line-height: 1.7 !important;
+    font-size: 0.95rem !important;
+    max-width: 350px !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Newsletter form styling */
+.footer-newsletter {
+    margin: 1.75rem 0 !important;
+}
+
+.footer-newsletter h4 {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.footer-newsletter p {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.newsletter-form {
+    width: 100% !important;
+}
+
+.newsletter-input-wrapper {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 350px !important;
+}
+
+.newsletter-input {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    padding-right: 3.5rem !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 6px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.9rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.newsletter-input:focus {
+    outline: none !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(64, 113, 255, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(64, 113, 255, 0.15) !important;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.newsletter-submit {
+    position: absolute !important;
+    right: 5px !important;
+    background: linear-gradient(135deg, #4071ff 0%, #635dff 100%) !important;
+    border: none !important;
+    color: white !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.newsletter-submit:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 3px 10px rgba(64, 113, 255, 0.3) !important;
+}
+
+/* Social links styling */
+.social-links {
+    margin-top: 1.5rem !important;
+}
+
+.social-link {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, #4071ff 0%, #635dff 100%) !important;
+    color: white !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(64, 113, 255, 0.25) !important;
+}
+
+/* Footer sections styling */
+.footer-section h4 {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: 0.5px !important;
+    position: relative !important;
+    padding-bottom: 12px !important;
+}
+
+.footer-section h4::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 40px !important;
+    height: 2px !important;
+    background: linear-gradient(to right, #4071ff, transparent) !important;
+}
+
+.footer-section h4 i {
+    color: #4071ff !important;
+    margin-right: 0.5rem !important;
+}
+
+/* Footer links styling */
+.footer-link {
+    color: rgba(255, 255, 255, 0.65) !important;
+    transition: all 0.3s ease !important;
+    padding: 0.6rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.footer-link i {
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.3s ease !important;
+    margin-right: 0.5rem !important;
+}
+
+.footer-link:hover {
+    color: #4071ff !important;
+    transform: translateX(5px) !important;
+}
+
+.footer-link:hover i {
+    color: #4071ff !important;
+}
+
+/* Footer stats styling */
+.footer-stats {
+    display: flex !important;
+    margin-top: 2rem !important;
+    gap: 1.5rem !important;
+}
+
+.footer-stat {
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding: 0.75rem 1.25rem !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.3s ease !important;
+}
+
+.footer-stat:hover {
+    transform: translateY(-3px) !important;
+    background: rgba(64, 113, 255, 0.1) !important;
+    border-color: rgba(64, 113, 255, 0.2) !important;
+}
+
+.stat-value {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: #4071ff !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.stat-label {
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: rgba(13, 17, 27, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    padding: 1.5rem 0 !important;
+}
+
+.footer-bottom-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.copyright {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    flex-wrap: wrap !important;
+}
+
+.copyright p {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+}
+
+.language-selector {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.language-selector::before {
+    content: '\f0ac' !important;
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 900 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    position: absolute !important;
+    left: 0.8rem !important;
+    pointer-events: none !important;
+}
+
+.language-select {
+    padding: 0.4rem 0.5rem 0.4rem 2.2rem !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 4px !important;
+    font-size: 0.85rem !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.language-select:focus {
+    outline: none !important;
+    border-color: #4071ff !important;
+    box-shadow: 0 0 0 2px rgba(64, 113, 255, 0.15) !important;
+}
+
+.footer-meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    flex-wrap: wrap !important;
+}
+
+.footer-meta span {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.9rem !important;
+}
+
+.trust-badges {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin-right: 1rem !important;
+}
+
+.trust-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background-color: rgba(64, 113, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(64, 113, 255, 0.2) !important;
+}
+
+.trust-badge i {
+    color: #4071ff !important;
+    font-size: 0.8rem !important;
+}
+
+.footer-meta span i {
+    color: #ff6b6b !important;
+    margin: 0 0.3rem !important;
+    animation: heartbeat 1.5s ease infinite !important;
+}
+
+.footer-meta-link {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+}
+
+.footer-meta-link:hover {
+    color: #4071ff !important;
+}
+
+.footer-meta-link::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -3px !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 1px !important;
+    background: #4071ff !important;
+    transition: width 0.3s ease !important;
+}
+
+.footer-meta-link:hover::after {
+    width: 100% !important;
+}
+
+.back-to-top {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, #4071ff 0%, #635dff 100%) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 3px 8px rgba(64, 113, 255, 0.25) !important;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(64, 113, 255, 0.35) !important;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 992px) {
+    .footer-main {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .brand-description {
+        max-width: 80% !important;
+        margin: 0 auto !important;
+    }
+    
+    .newsletter-input-wrapper {
+        margin: 0 auto !important;
+    }
+    
+    .footer-newsletter {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-bottom-content {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .footer-meta {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+    
+    .social-link {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .copyright {
+        justify-content: center !important;
+    }
+    
+    .trust-badges {
+        margin: 1rem 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    .footer-stats {
+        justify-content: center !important;
+    }
+    
+    .footer-section h4::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-badge {
+        font-size: 0.7rem !important;
+        padding: 0.3rem 0.5rem !important;
+    }
+    
+    .footer-meta-link {
+        font-size: 0.8rem !important;
+    }
+    
+    .copyright {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+}

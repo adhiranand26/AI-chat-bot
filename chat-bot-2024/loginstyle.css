@@ -1,0 +1,75 @@
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.fb-form {
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card {
+    color:rgb(255, 255, 255);
+    font-family:monospace;
+    font-size: 25px;
+}   
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid#000000;
+    border-radius: 4px;
+}
+
+button.login {
+    background-color:#000000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor:alias;
+    font-size: large;
+    
+}
+button.login:hover{
+    color: rgb(255, 0, 0);
+    transition: 0.4s ease-in-out;
+}
+a.forgot {
+    color:white;
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+    font-family: monospace;
+    font-size: 15px;
+}
+a.forgot:hover{
+    color: rgb(255, 0, 0);
+    transition: 0.4s ease-in-out;
+}
+
+div.button a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 15px;
+}
+div.button a:hover {
+    color: rgb(255, 0, 0);
+    transition: 0.4s ease-in-out;
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+}
+body{
+    background-image:url(749918.png) ;
+    font-family:'sans-serif';
+}

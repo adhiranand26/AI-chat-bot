@@ -1,0 +1,276 @@
+/* Enhanced Animation Library for Chat Interface */
+
+/* Core Animation Keyframes */
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes wavyText {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-4px); }
+  75% { transform: translateY(4px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Connection Status Animations */
+@keyframes connecting-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dots-pulse {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  20% { opacity: 1; transform: scale(1); }
+  80% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes thinking-pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Enhanced Thinking Animation */
+@keyframes thinking {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 12px var(--primary-color); }
+}
+
+/* Response completion animation */
+@keyframes completionSweep {
+  0% { width: 0; opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}
+
+/* Context awareness animation */
+@keyframes contextPing {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+}
+
+/* Message group animations */
+.message-group {
+  animation: fadeScale 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.message-group.user-group {
+  animation: slideInRight 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.message-group.bot-group {
+  animation: slideInLeft 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Connection Status Indicator Styles */
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status-indicator.offline {
+  background-color: var(--error-color);
+  box-shadow: 0 0 5px var(--error-color);
+}
+
+.status-indicator.connecting {
+  background-color: var(--warning-color);
+  box-shadow: 0 0 5px var(--warning-color);
+  animation: connecting-pulse 1.2s infinite;
+}
+
+.status-indicator.online {
+  background-color: var(--success-color);
+  box-shadow: 0 0 5px var(--success-color);
+}
+
+.status-indicator.thinking {
+  animation: thinking-pulse 1s infinite;
+}
+
+/* Connection Dots Animation */
+.connection-dots {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.connection-dots span {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin: 0 2px;
+  border-radius: 50%;
+  background-color: var(--text-secondary);
+  animation: dots-pulse 1.4s infinite;
+}
+
+.connection-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.connection-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Enhanced notification animation */
+.notification.show {
+  animation: fadeScale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Gradient flow animation */
+.gradient-flow {
+  background: linear-gradient(270deg, 
+    var(--primary-color), 
+    var(--secondary-color), 
+    var(--accent-color),
+    var(--primary-color));
+  background-size: 300% 100%;
+  animation: gradientFlow 4s ease infinite;
+}
+
+/* Enhanced typing cursor */
+.typing-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.15em;
+  background-color: currentColor;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+}
+
+/* Message context connection lines */
+.context-line {
+  position: absolute;
+  left: 20px;
+  top: -15px;
+  height: 15px;
+  width: 2px;
+  background: var(--border-color);
+  opacity: 0.7;
+}
+
+/* Message hover effects */
+.message {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.message:hover {
+  transform: translateY(-2px);
+}
+
+.user-message:hover {
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.15);
+}
+
+.bot-message:hover {
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.15);
+}
+
+/* Enhanced avatar animations */
+.message-avatar {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.message:hover .message-avatar {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* Code block animation */
+.bot-message .message-content pre {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bot-message .message-content pre:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Action button animations */
+.action-button {
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.action-button:hover {
+  transform: translateY(-3px) scale(1.15);
+}
+
+/* Performance optimizations for animations on mobile */
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* API Status Container */
+.api-status {
+  display: flex;
+  align-items: center;
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
